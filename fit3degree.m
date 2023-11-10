@@ -1,0 +1,16 @@
+function [a, b, c] = fit3degree(x,y)
+%fit a line of form y = ax+c
+n=length(x);
+%sumx4=sum(x.^4);
+sumx3=sum(x.^3);
+sumx2=sum(x.^2);
+sumx=sum(x);
+sumx2y=sum(x.^2.*y);
+sumxy=sum(x.*y);
+sumy=sum(y);
+B=[sumx3 sumx2 sumx; sumx2 sumx n;sumx n 1];
+C=[sumx2y; sumxy; sumy];
+A=B\C; % use your linear eqn. solver here
+a=A(1);
+b=A(2);
+c=A(3);

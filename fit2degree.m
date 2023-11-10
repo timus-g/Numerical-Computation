@@ -1,0 +1,12 @@
+function [a, b] = fit2degree(x,y)
+%fit a line of form y = ax+c
+n=length(x);
+sumx2=sum(x.^2);
+sumx=sum(x);
+sumxy=sum(x.*y);
+sumy=sum(y);
+B=[sumx2 sumx; sumx n];
+C=[sumxy ; sumy];
+A=B\C; % use your linear eqn. solver here
+a=A(1);
+b=A(2);
